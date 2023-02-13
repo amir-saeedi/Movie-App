@@ -22,9 +22,20 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Link from 'next/link';
+//
+import InfoIcon from '@mui/icons-material/Info';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import EmailIcon from '@mui/icons-material/Email';
+//
+import Image from 'next/image';
+import missing_avatar from '../public/missing_avatar.jpg';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['About', 'Blog', "Conect"];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const DashboardValues = ['About', 'Blog', "Conect"];
+const DashboardIcons = [<InfoIcon />, <CampaignIcon />, <EmailIcon />];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -54,11 +65,11 @@ function ResponsiveAppBar() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                {DashboardValues.map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {DashboardIcons[index]}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>
@@ -66,18 +77,6 @@ function ResponsiveAppBar() {
                 ))}
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
         </Box>
     );
 
@@ -108,7 +107,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        Movie
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -149,7 +148,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        Movie
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -158,7 +157,9 @@ function ResponsiveAppBar() {
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                <Link href={`/${page}`}>
+                                    {page}
+                                </Link>
                             </Button>
                         ))}
                     </Box>
@@ -166,7 +167,14 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Image
+                                    style={{ borderRadius: "50%" }}
+                                    src={missing_avatar}
+                                    alt="Picture of the author"
+                                    width={55}
+                                    height={55}
+                                    priority
+                                />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -187,7 +195,9 @@ function ResponsiveAppBar() {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                    <Link href={`/${setting}`}>
+                                        <Typography textAlign="center">{setting}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>

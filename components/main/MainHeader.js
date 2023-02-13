@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, CssBaseline, Typography } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import { Navigation, Pagination, A11y, FreeMode, EffectCards } from 'swiper';
 import { shuffle } from "lodash";
 import { Swiper, SwiperSlide } from "swiper/react";
