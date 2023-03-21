@@ -59,7 +59,7 @@ const MainHeader = ({ props }) => {
                             {({ isActive }) => (
                                 <Card
                                     sx={{
-                                        backgroundColor: "rgba(0,0,0,0.6)",
+                                        backgroundColor: "rgba(0,0,0,0.4)",
                                         boxShadow: "-1px -1px 2px #737373",
                                         height: "100%", display: "flex"
                                     }}>

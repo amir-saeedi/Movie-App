@@ -8,6 +8,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import { AppBar, Backdrop, Button, Card, FormHelperText, Input, InputLabel, TextField, Toolbar, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
+import TheatersIcon from '@mui/icons-material/Theaters';
+import TvIcon from '@mui/icons-material/Tv';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 //
 import { FormControl } from '@mui/material';
 import Link from 'next/link';
@@ -26,7 +29,7 @@ export default function Searchbar() {
                             <IconButton sx={{ p: '10px' }} aria-label="menu">
                                 <MenuIcon />
                             </IconButton>
-                            <TextField id="standard-basic" sx={{ mb: 2, ml: 1, flex: 1 }} name="search" label="Standard" variant="standard" />
+                            <TextField id="standard-basic" sx={{ mb: 2, ml: 1, flex: 1 }} name="search" label="Search name" variant="standard" />
                             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
                                 <SearchIcon />
                             </IconButton>
@@ -34,24 +37,33 @@ export default function Searchbar() {
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
                         <Container maxWidth="xl">
-                            <Card sx={{ display: "flex" ,background:"transparent", boxShadow:"none",gap:2}}>
+                            <Card sx={{ display: "flex", background: "transparent", boxShadow: "none", gap: 3 }}>
                                 <Typography variant='h6'>
                                     <Link href={"/hello"}>
-                                        #Best Movie
+                                        <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#c7c7c7" }}>
+                                            <TheatersIcon />
+                                            <Typography>Top Movies</Typography>
+                                        </Box>
                                     </Link>
                                 </Typography>
                                 <Typography variant='h6'>
                                     <Link href={"/hello"}>
-                                        #Best Movie
+                                        <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#c7c7c7" }}>
+                                            <TvIcon />
+                                            <Typography>Top TVs</Typography>
+                                        </Box>
                                     </Link>
                                 </Typography>
                                 <Typography variant='h6'>
                                     <Link href={"/hello"}>
-                                        #Best Movie
+                                        <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#c7c7c7" }}>
+                                            <ElectricBoltIcon />
+                                            <Typography>Coming Soon</Typography>
+                                        </Box>
                                     </Link>
                                 </Typography>
                             </Card >
-                            <Card sx={{ display: "flex", background: "transparent", boxShadow: "none", gap: 2 }}>
+                            {/* <Card sx={{ display: "flex", background: "transparent", boxShadow: "none", gap: 2 }}>
                                 <Typography variant='h6'>
                                     <Link href={"/hello"}>
                                         #Best Movie
@@ -67,7 +79,7 @@ export default function Searchbar() {
                                         #Best Movie
                                     </Link>
                                 </Typography>
-                            </Card>
+                            </Card> */}
                         </Container>
                     </Box>
                 </Toolbar>
