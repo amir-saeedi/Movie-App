@@ -57,10 +57,13 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch("https://imdb-api.com/en/API/BoxOffice/k_szu1gars")
-    const data = await res.json()
-
-    // Pass data to the page via props
-    return { props: { data } }
+    try {
+        // Fetch data from external API
+        const res = await fetch("https://imdb-api.com/en/API/BoxOffice/k_szu1gars")
+        const data = await res.json()
+        // Pass data to the page via props
+        return { props: { data } }
+    } catch (error) {
+        return <div>server Error</div>
+    }
 }
