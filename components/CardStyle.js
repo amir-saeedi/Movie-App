@@ -11,48 +11,111 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import TheatersIcon from '@mui/icons-material/Theaters';
+import { Box } from '@mui/material';
 
-export default function CardStyle() {
+export default function CardStyle({ props }) {
+    console.log(props)
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            {/* <Typography variant='h3'>
-                Name Movie
-            </Typography> */}
+        <Card sx={{ maxWidth: 800, paddingBottom: "5px", backgroundColor: "#444" }}>
             <CardHeader
-                // avatar={
-                //     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                //         R
-                //     </Avatar>
-                // }
-                // action={
-                //     <IconButton aria-label="settings">
-                //         <MoreVertIcon />
-                //     </IconButton>
-                // }
-                title="Name movie"
-                // subheader="September 14, 2016"
+                sx={{ color: "#fff" }}
+                title={props.title}
             />
-            <CardMedia
-                component="img"
-                height="194"
-                image="/static/images/cards/paella.jpg"
-                alt="Paella dish"
-            />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
-                </Typography>
+            <CardContent sx={{ display: "flex", height: "100%" }}>
+                <CardMedia
+                    component="img"
+                    loading="lazy"
+                    height="350px"
+                    image={props.image}
+                    alt={props.title}
+                    sx={{
+                        width: "40%",
+                        borderRadius: "5px",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                    }}
+                />
+                <Box sx={{
+                    width: "60", paddingLeft: 3,
+                    display: "flex", flexDirection: "column",
+                    justifyContent: "space-between"
+                }}>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <TheatersIcon sx={{ color: "#fff", fontSize: 20 }} />
+                        <Typography variant='p' fontSize={12} color="text.secondary" fontWeight="bold" textAlign={"justify"} sx={{ paddingLeft: 1 }}>
+                            Directors:
+                            <Typography variant="span" fontSize={12} sx={{ color: "#fff", paddingLeft: 1 }}>
+                                {props.directors}
+                            </Typography>
+                        </Typography>
+                    </Box>
+                    {/* <CardActions disableSpacing>
+                        <IconButton aria-label="add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                        <IconButton aria-label="share">
+                            <ShareIcon />
+                        </IconButton>
+                    </CardActions> */}
+                </Box>
             </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-            </CardActions>
         </Card>
     );
 }

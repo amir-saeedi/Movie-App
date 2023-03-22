@@ -23,12 +23,11 @@ const colors = [
 ];
 SwiperCore.use([Autoplay]);
 
-const MainHeader = ({ props }) => {
+const MainHeader = ({props}) => {
     const [color, setColor] = React.useState();
     React.useEffect(() => {
         setColor(shuffle(colors).pop());
     }, []);
-    console.log(props)
     return (
         <Card
             sx={{
@@ -54,7 +53,7 @@ const MainHeader = ({ props }) => {
                     slidesPerView={1}
                     pagination={{ clickable: true }}
                 >
-                    {props.data && props.data?.items.map(val => {
+                    {props && props?.items.map(val => {
                         return (<SwiperSlide key={val.id}>
                             {({ isActive }) => (
                                 <Card
